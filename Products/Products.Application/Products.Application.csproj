@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>MusicStore.Products.Application</AssemblyName>
+    <RootNamespace>MusicStore.Products.Application</RootNamespace>
+  </PropertyGroup>
+
+</Project>
