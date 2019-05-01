@@ -1,10 +1,10 @@
 ﻿{
   "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "Backend.Api": {
+    "EmailAgent.Api": {
       "commandName": "Project",
       "launchBrowser": false,
-      "applicationUrl": "http://localhost:4885",
+      "applicationUrl": "http://localhost:4887",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

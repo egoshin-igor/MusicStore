@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using MusicStore.Products.Application.BaseEntities;
+using Microsoft.EntityFrameworkCore;
+using MusicStore.Lib.Repositories.Abstractions;
 
-namespace MusicStore.Products.Infrastructure.Foundation
+namespace MusicStore.Lib.Repositories
 {
-    class Repository<TEnitiy> : IRepository<TEnitiy> where TEnitiy : class
+    public class Repository<TEnitiy> : IRepository<TEnitiy> where TEnitiy : class
     {
-        protected readonly ProductsDbContext DbContext;
+        protected readonly DbContext DbContext;
 
-        public Repository( ProductsDbContext dbContext )
+        public Repository( DbContext dbContext )
         {
             DbContext = dbContext;
         }

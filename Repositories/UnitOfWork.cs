@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
-using MusicStore.Products.Application.BaseEntities;
+using Microsoft.EntityFrameworkCore;
+using MusicStore.Lib.Repositories.Abstractions;
 
-namespace MusicStore.Products.Infrastructure.Foundation
+namespace MusicStore.Lib.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        protected readonly ProductsDbContext DbContext;
+        protected readonly DbContext DbContext;
 
-        public UnitOfWork( ProductsDbContext dbContext )
+        public UnitOfWork( DbContext dbContext )
         {
             DbContext = dbContext;
         }

@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Lib\Queries.Abstractions\Queries.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Lib\Repositories.Abstractions\Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Repositories\Repositories.csproj" />
     <ProjectReference Include="..\Products.Application\Products.Application.csproj" />
     <ProjectReference Include="..\Products.Core\Products.Core.csproj" />
   </ItemGroup>

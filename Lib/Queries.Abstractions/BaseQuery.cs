@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace MusicStore.Products.Infrastructure.Foundation
+namespace MusicStore.Lib.Queries.Abstractions
 {
-    public class BaseQuery<TEntity> where TEntity : class
+    public abstract class BaseQuery<TEntity> where TEntity : class
     {
         private DbSet<TEntity> _dbSet { get; }
         protected IQueryable<TEntity> Query => _dbSet.AsNoTracking();
 
-        public BaseQuery( ProductsDbContext dbContext )
+        protected BaseQuery( DbContext dbContext )
         {
             _dbSet = dbContext.Set<TEntity>();
         }

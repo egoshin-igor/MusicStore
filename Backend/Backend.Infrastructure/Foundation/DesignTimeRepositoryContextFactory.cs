@@ -3,12 +3,13 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using MusicStore.Backend.Infrastructure.Foundation;
 
 namespace MusicStore.Products.Infrastructure.Foundation
 {
-    public class DesignTimeRepositoryContextFactory : IDesignTimeDbContextFactory<ProductsDbContext>
+    public class DesignTimeRepositoryContextFactory : IDesignTimeDbContextFactory<BackendDbContext>
     {
-        public ProductsDbContext CreateDbContext( string[] args )
+        public BackendDbContext CreateDbContext( string[] args )
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath( Directory.GetCurrentDirectory() )
@@ -17,11 +18,11 @@ namespace MusicStore.Products.Infrastructure.Foundation
                 .AddEnvironmentVariables();
 
             var config = builder.Build();
-            var connectionString = config.GetConnectionString( "ProductsConnection" );
-            var optionsBuilder = new DbContextOptionsBuilder<ProductsDbContext>();
-            optionsBuilder.UseSqlServer( connectionString, x => x.MigrationsAssembly( "MusicStore.Products.Api" ) );
+            var connectionString = config.GetConnectionString( "BackendConnection" );
+            var optionsBuilder = new DbContextOptionsBuilder<BackendDbContext>();
+            optionsBuilder.UseSqlServer( connectionString, x => x.MigrationsAssembly( "MusicStore.Backend.Api" ) );
 
-            return new ProductsDbContext( optionsBuilder.Options );
+            return new BackendDbContext( optionsBuilder.Options );
         }
     }
 }

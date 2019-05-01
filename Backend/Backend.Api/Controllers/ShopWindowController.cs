@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MusicStore.Backend.Application.BaseEntity;
 using MusicStore.Backend.Application.ExternalQuries;
 using MusicStore.Backend.Application.ExternalQuries.Dtos;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ namespace MusicStore.Backend.Api.Controllers
 {
     [Route( "api/shop-window" )]
     [ApiController]
-    public class ShopWindowController : ControllerBase
+    public class ShopWindowController : JsonController
     {
         IProductQuery _productQuery;
 
@@ -20,21 +21,15 @@ namespace MusicStore.Backend.Api.Controllers
         }
 
         [HttpGet, Route( "products-ids" )]
-        public async Task<string> GetAllIds()
+        public async Task<JsonResponse> GetAllIds()
         {
-            Console.WriteLine( 2 );
-            string result = JsonConvert.SerializeObject( await _productQuery.GetAllIdsAsync() );
-            Console.WriteLine( result );
-            return result;
+            return Success( await _productQuery.GetAllIdsAsync() );
         }
 
         [HttpPost( "products" )]
-        public async Task<string> GetByIdsAsync( [FromBody] List<int> ids )
+        public async Task<JsonResponse> GetByIdsAsync( [FromBody] List<int> ids )
         {
-            Console.WriteLine( 1 );
-            string result = JsonConvert.SerializeObject( await _productQuery.GetByIdsAsync( ids ) );
-            Console.WriteLine( result );
-            return result;
+            return Success( await _productQuery.GetByIdsAsync( ids ) );
         }
     }
 }

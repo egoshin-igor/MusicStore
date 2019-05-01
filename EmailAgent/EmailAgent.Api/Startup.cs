@@ -9,8 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MusicStore.EmailAgent.Infrastructure.Settings;
+using MusicStore.EmailAgent.Infrastructure.Services;
 
-namespace WebApplication1
+namespace EmailAgent.Api
 {
     public class Startup
     {
@@ -24,7 +26,12 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices( IServiceCollection services )
         {
-            services.AddMvc().SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
+            services
+                .BuildEmailAgentApllication()
+                .AddMvc()
+                .SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
+
+            services.AddSingleton( Configuration.GetSection( "EmailServiceSettings" ).Get<EmailServiceSettings>() );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

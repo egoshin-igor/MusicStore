@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MusicStore.Products.Application.BaseEntities
+namespace MusicStore.Lib.Repositories.Abstractions
 {
     public interface IRepository<TEntity> where TEntity : class
     {

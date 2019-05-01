@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MusicStore.Products.Application.BaseEntities
+namespace MusicStore.Lib.Repositories.Abstractions
 {
     public interface IUnitOfWork
     {

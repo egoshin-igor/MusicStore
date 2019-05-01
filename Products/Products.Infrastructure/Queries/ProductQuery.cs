@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MusicStore.Lib.Queries.Abstractions;
 using MusicStore.Products.Application.Queries;
 using MusicStore.Products.Application.Queries.Dtos;
 using MusicStore.Products.Core.Products;

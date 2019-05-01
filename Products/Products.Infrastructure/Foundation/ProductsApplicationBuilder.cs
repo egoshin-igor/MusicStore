@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using MusicStore.Products.Application.BaseEntities;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MusicStore.Lib.Repositories;
+using MusicStore.Lib.Repositories.Abstractions;
 using MusicStore.Products.Application.Queries;
 using MusicStore.Products.Infrastructure.Queries;
 

@@ -2,6 +2,8 @@
 using MusicStore.Backend.Application.ExternalQuries;
 using MusicStore.Backend.Infrastructure.Clients;
 using MusicStore.Backend.Infrastructure.ExternalQueries;
+using MusicStore.Lib.Repositories;
+using MusicStore.Lib.Repositories.Abstractions;
 
 namespace MusicStore.Backend.Infrastructure.Foundation
 {
@@ -14,6 +16,7 @@ namespace MusicStore.Backend.Infrastructure.Foundation
 
             // Infrastructure
             services.AddHttpClient<ProductClient>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
