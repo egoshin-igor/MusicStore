@@ -6,7 +6,8 @@ namespace MusicStore.Lib.Repositories
 {
     public class Repository<TEnitiy> : IRepository<TEnitiy> where TEnitiy : class
     {
-        protected readonly DbContext DbContext;
+        private readonly DbContext DbContext;
+        protected DbSet<TEnitiy> Entities => DbContext.Set<TEnitiy>();
 
         public Repository( DbContext dbContext )
         {

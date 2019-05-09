@@ -6,4 +6,8 @@
     <RootNamespace>MusicStore.EmailAgent.Application</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\IntegrationEvents\IntegrationEvents.csproj" />
+  </ItemGroup>
+
 </Project>

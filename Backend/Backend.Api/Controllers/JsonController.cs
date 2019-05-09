@@ -5,7 +5,7 @@ namespace MusicStore.Backend.Api.Controllers
 {
     public class JsonController : ControllerBase
     {
-        public static JsonResponse Success( object result )
+        public static JsonResponse Success( object result = null )
         {
             return new JsonResponse( result, "Success" );
         }

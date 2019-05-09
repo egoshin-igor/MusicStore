@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MusicStore.EmailAgent.Infrastructure.Settings;
 using MusicStore.EmailAgent.Infrastructure.Services;
+using MusicStore.Lib.IntegrationEvents;
+using MusicStore.EmailAgent.Infrastructure.Foundation;
 
 namespace EmailAgent.Api
 {
@@ -27,11 +29,13 @@ namespace EmailAgent.Api
         public void ConfigureServices( IServiceCollection services )
         {
             services
+                .AddEventBus()
                 .BuildEmailAgentApllication()
                 .AddMvc()
                 .SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
 
             services.AddSingleton( Configuration.GetSection( "EmailServiceSettings" ).Get<EmailServiceSettings>() );
+            services.BuildServiceProvider().EnableEventListeners();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

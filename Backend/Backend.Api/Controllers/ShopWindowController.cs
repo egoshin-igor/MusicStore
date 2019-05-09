@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicStore.Backend.Application.BaseEntity;
+using MusicStore.Backend.Application.Entities.Users;
 using MusicStore.Backend.Application.ExternalQuries;
-using MusicStore.Backend.Application.ExternalQuries.Dtos;
-using Newtonsoft.Json;
 
 namespace MusicStore.Backend.Api.Controllers
 {
@@ -13,7 +13,7 @@ namespace MusicStore.Backend.Api.Controllers
     [ApiController]
     public class ShopWindowController : JsonController
     {
-        IProductQuery _productQuery;
+        private readonly IProductQuery _productQuery;
 
         public ShopWindowController( IProductQuery productQuery )
         {
@@ -30,6 +30,26 @@ namespace MusicStore.Backend.Api.Controllers
         public async Task<JsonResponse> GetByIdsAsync( [FromBody] List<int> ids )
         {
             return Success( await _productQuery.GetByIdsAsync( ids ) );
+        }
+
+        [HttpGet( "any-rights" )]
+        public JsonResponse CheckAnyRights()
+        {
+            return Success( "any-rights" );
+        }
+
+        [Authorize( Roles = UserRole.User )]
+        [HttpGet( "user-rights" )]
+        public JsonResponse CheckUserRights()
+        {
+            return Success( "user-rights" );
+        }
+
+        [Authorize( Roles = UserRole.Admin )]
+        [HttpGet( "admin-rights" )]
+        public JsonResponse CheckAdminRights()
+        {
+            return Success( "admin-rights" );
         }
     }
 }

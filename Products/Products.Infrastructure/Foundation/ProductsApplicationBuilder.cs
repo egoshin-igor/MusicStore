@@ -11,7 +11,7 @@ namespace MusicStore.Products.Infrastructure.Foundation
         public static IServiceCollection BuildProductsApllication( this IServiceCollection services )
         {
             // Application
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork<ProductsDbContext>>();
             services.AddScoped<IProductQuery, ProductQuery>();
 
             return services;

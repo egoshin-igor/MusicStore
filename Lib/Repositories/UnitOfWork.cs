@@ -4,11 +4,12 @@ using MusicStore.Lib.Repositories.Abstractions;
 
 namespace MusicStore.Lib.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<T> : IUnitOfWork
+         where T : DbContext
     {
-        protected readonly DbContext DbContext;
+        protected readonly T DbContext;
 
-        public UnitOfWork( DbContext dbContext )
+        public UnitOfWork( T dbContext )
         {
             DbContext = dbContext;
         }

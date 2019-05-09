@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bus.Abstractions\Bus.Abstractions.csproj" />
+    <ProjectReference Include="..\KeyValueStorage.Abstractions\KeyValueStorage.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>MusicStore.Lib.Bus</AssemblyName>
+    <RootNamespace>MusicStore.Lib.Bus</RootNamespace>
+  </PropertyGroup>
+
+</Project>

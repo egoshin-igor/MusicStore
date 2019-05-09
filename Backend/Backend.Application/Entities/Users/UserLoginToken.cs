@@ -12,7 +12,7 @@ namespace MusicStore.Backend.Application.Entities.Users
         {
             Email = email;
             Token = token;
-            ExpiratedOnUtc = ExpiratedOnUtc;
+            ExpiratedOnUtc = expiratedOnUtc;
         }
     }
 }

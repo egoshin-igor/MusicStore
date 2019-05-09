@@ -20,7 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Lib\Http\Http.csproj" />
-    <ProjectReference Include="..\..\Repositories\Repositories.csproj" />
+    <ProjectReference Include="..\..\Lib\Queries.Abstractions\Queries.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Lib\Repositories\Repositories.csproj" />
     <ProjectReference Include="..\Backend.Application\Backend.Application.csproj" />
   </ItemGroup>
 
