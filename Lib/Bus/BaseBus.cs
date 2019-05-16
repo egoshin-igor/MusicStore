@@ -61,13 +61,15 @@ namespace MusicStore.Lib.Bus
             where TMessage : IBusMessage
             where TMessageAsyncHandler : IBusMessageAsyncHandler<TMessage>
         {
-            using ( var scope = _serviceProvider.CreateScope() )
+            Subscribe<TMessage>( busName, async ( busMessage ) =>
             {
-                var messageHandler = ( TMessageAsyncHandler )scope.ServiceProvider
-                  .GetRequiredService( typeof( TMessageAsyncHandler ) );
-
-                Subscribe<TMessage>( busName, async ( busMessage ) => await messageHandler.HandleAsync( busMessage ) );
-            }
+                using ( var scope = _serviceProvider.CreateScope() )
+                {
+                    var messageHandler = ( TMessageAsyncHandler )scope.ServiceProvider
+                    .GetRequiredService( typeof( TMessageAsyncHandler ) );
+                    await messageHandler.HandleAsync( busMessage );
+                }
+            } );
         }
     }
 }

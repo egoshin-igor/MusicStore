@@ -7,10 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MusicStore.Backend.Application.Entities.Users;
-using MusicStore.Backend.Infrastructure;
+using MusicStore.Backend.Application.Settings;
 using MusicStore.Backend.Infrastructure.Foundation;
+using MusicStore.Backend.Infrastructure.Settings;
 using MusicStore.Lib.IntegrationEvents;
-using MusicStore.Products.Infrastructure.Foundation;
 
 namespace MusicStore.Backend.Api
 {
@@ -33,6 +33,8 @@ namespace MusicStore.Backend.Api
 
             AddAuthentication( services );
             services.AddSingleton( Configuration.GetSection( "BackendAppSettings" ).Get<BackendAppSettings>() );
+            services.AddSingleton( Configuration.GetSection( "StaticFilesPath" ).Get<StaticFilesPath>() );
+
             services.AddDbContext<BackendDbContext>( c =>
                 c.UseSqlServer( Configuration.GetConnectionString( "BackendConnection" ) ) );
         }

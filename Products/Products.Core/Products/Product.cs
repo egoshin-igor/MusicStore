@@ -10,19 +10,15 @@ namespace MusicStore.Products.Core.Products
         public string Category { get; protected set; }
         public int Quantity { get; protected set; }
         public string ImagePath { get; protected set; }
+        public decimal Price { get; protected set; }
 
-        public Product(
-            string title,
-            string description,
-            string category,
-            int quantity,
-            string imagePath )
+        protected Product()
         {
-            Title = title;
-            Description = description;
-            Category = category;
-            Quantity = quantity;
-            ImagePath = imagePath;
+        }
+
+        public Product( ProductInfo productInfo )
+        {
+            Update( productInfo );
         }
 
         public void ChangeQuantity( int count )
@@ -51,6 +47,10 @@ namespace MusicStore.Products.Core.Products
             if ( productInfo.ImagePath != null )
             {
                 ImagePath = productInfo.ImagePath;
+            }
+            if ( productInfo.Price != null )
+            {
+                Price = productInfo.Price.Value;
             }
         }
     }

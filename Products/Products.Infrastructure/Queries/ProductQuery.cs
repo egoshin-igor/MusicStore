@@ -38,7 +38,8 @@ namespace MusicStore.Products.Infrastructure.Queries
                 Description = p.Description,
                 Id = p.Id,
                 ImagePath = p.ImagePath,
-                Quantity = p.Quantity
+                Quantity = p.Quantity,
+                Price = p.Price
             } ).ToList();
         }
     }

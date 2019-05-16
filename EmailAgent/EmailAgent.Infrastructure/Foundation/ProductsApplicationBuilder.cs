@@ -16,7 +16,7 @@ namespace MusicStore.EmailAgent.Infrastructure.Services
             services.AddScoped<IEmailService, EmailService>();
 
 
-            // Events
+            // EventHandlers
             services.AddScoped<UserAuthenticatedAsyncHandler>();
 
             return services;

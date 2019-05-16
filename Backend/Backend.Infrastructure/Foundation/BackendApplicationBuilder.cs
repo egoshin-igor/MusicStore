@@ -16,6 +16,7 @@ namespace MusicStore.Backend.Infrastructure.Foundation
         {
             // AppServices
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IProductService, ProductService>();
 
             // Query
             services.AddScoped<IProductQuery, ProductQuery>();

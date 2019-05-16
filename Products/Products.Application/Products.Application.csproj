@@ -6,4 +6,10 @@
     <RootNamespace>MusicStore.Products.Application</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\IntegrationEvents\IntegrationEvents.csproj" />
+    <ProjectReference Include="..\..\Lib\Repositories.Abstractions\Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\Products.Core\Products.Core.csproj" />
+  </ItemGroup>
+
 </Project>
