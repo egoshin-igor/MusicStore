@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MusicStore.Backend.Application.Clients;
 using MusicStore.Backend.Application.ExternalQuries;
 using MusicStore.Backend.Application.ExternalQuries.Dtos;
-using MusicStore.Backend.Infrastructure.Clients;
 using MusicStore.Lib.Http.Client;
 
 namespace MusicStore.Backend.Infrastructure.ExternalQueries
 {
     public class ProductQuery : IProductQuery
     {
-        private readonly ProductClient _productClient;
+        private readonly IProductClient _productClient;
 
-        public ProductQuery( ProductClient productClient )
+        public ProductQuery( IProductClient productClient )
         {
             _productClient = productClient;
         }

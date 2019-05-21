@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MusicStore.Lib.Repositories.Abstractions;
 
@@ -27,6 +28,11 @@ namespace MusicStore.Lib.Repositories
         public void Remove( TEnitiy entity )
         {
             DbContext.Remove( entity );
+        }
+
+        public async Task AddAsync( TEnitiy entity )
+        {
+            await DbContext.AddAsync( entity );
         }
     }
 }

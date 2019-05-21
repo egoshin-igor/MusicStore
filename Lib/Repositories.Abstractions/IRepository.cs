@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MusicStore.Lib.Repositories.Abstractions
 {
@@ -7,5 +8,6 @@ namespace MusicStore.Lib.Repositories.Abstractions
         void Add( TEntity entity );
         void AddRange( List<TEntity> entities );
         void Remove( TEntity entity );
+        Task AddAsync( TEntity entity );
     }
 }

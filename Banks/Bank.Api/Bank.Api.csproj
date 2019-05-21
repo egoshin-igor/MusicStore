@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AssemblyName>MusicStore.Bank.Api</AssemblyName>
+    <RootNamespace>MusicStore.Bank.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190517105358_AddTransactionId.cs" />
+    <Compile Remove="Migrations\20190517105358_AddTransactionId.Designer.cs" />
+    <Compile Remove="Migrations\20190517105452_AddTransactionId.cs" />
+    <Compile Remove="Migrations\20190517105452_AddTransactionId.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bank.Infrastructure\Bank.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Lib\IntegrationEvents\IntegrationEvents.csproj" />
+  </ItemGroup>
+
+</Project>

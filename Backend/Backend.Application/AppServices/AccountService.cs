@@ -39,6 +39,7 @@ namespace MusicStore.Backend.Application.AppServices
             {
                 user = new User( email, UserRole.User );
                 _userRepository.Add( user );
+                _eventBus.Publish( new UserHasBeenAdded { Email = email } );
             }
             user.UpdateLoginToken( loginToken );
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using MusicStore.Backend.Application.AppServices.Entities;
+using MusicStore.Backend.Application.Clients;
 using MusicStore.Backend.Application.IntegrationEvents;
 using MusicStore.Backend.Application.IntegrationEvents.Dtos;
 using MusicStore.Backend.Application.Settings;
@@ -12,17 +14,20 @@ namespace MusicStore.Backend.Application.AppServices
     {
         void Edit( ProductInfo productInfo );
         void Add( ProductInfo productInfo );
+        Task<ProductBuiyngResult> BuyAsync( BuyTransactionInfo buyTransactionInfo );
     }
 
     public class ProductService : IProductService
     {
         private readonly StaticFilesPath _staticFilesPath;
         private readonly IEventBus _eventBus;
+        private readonly IProductClient _productClient;
 
-        public ProductService( StaticFilesPath staticFilesPath, IEventBus eventBus )
+        public ProductService( StaticFilesPath staticFilesPath, IEventBus eventBus, IProductClient productClient )
         {
             _staticFilesPath = staticFilesPath;
             _eventBus = eventBus;
+            _productClient = productClient;
         }
 
         public void Add( ProductInfo productInfo )
@@ -45,6 +50,13 @@ namespace MusicStore.Backend.Application.AppServices
                     Title = productInfo.Title
                 }
             } );
+        }
+
+        public async Task<ProductBuiyngResult> BuyAsync( BuyTransactionInfo buyTransactionInfo )
+        {
+            var response = await _productClient
+                .PostAsync<ProductBuiyngResult, BuyTransactionInfo>( buyTransactionInfo, "api/products/buy" );
+            return response.Result;
         }
 
         public void Edit( ProductInfo productInfo )

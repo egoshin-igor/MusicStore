@@ -10,7 +10,6 @@ namespace MusicStore.Products.Infrastructure.Configurations
         {
             builder.ToTable( nameof( Product ) ).HasKey( t => t.Id );
             builder.Property( t => t.Id ).HasColumnName( "ProductId" );
-            builder.Property( t => t.Price ).HasColumnType( "decimal" );
             builder.HasIndex( t => t.Category );
         }
     }

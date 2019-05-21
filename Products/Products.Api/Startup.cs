@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MusicStore.Lib.IntegrationEvents;
 using MusicStore.Products.Application.Settings;
 using MusicStore.Products.Infrastructure.Foundation;
+using MusicStore.Products.Infrastructure.Settings;
 
 namespace MusicStore.Products.Api
 {
@@ -31,6 +32,7 @@ namespace MusicStore.Products.Api
             services.AddDbContext<ProductsDbContext>( c =>
                 c.UseSqlServer( Configuration.GetConnectionString( "ProductsConnection" ) ) );
             services.AddSingleton( Configuration.GetSection( "StaticFilesPath" ).Get<StaticFilesPath>() );
+            services.AddSingleton( Configuration.GetSection( "ProductsAppSettings" ).Get<ProductsAppSettings>() );
 
             services.BuildServiceProvider().EnableEventListeners();
         }

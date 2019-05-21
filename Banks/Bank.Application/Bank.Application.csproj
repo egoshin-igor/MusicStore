@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>MusicStore.Bank.Application</AssemblyName>
+    <RootNamespace>MusicStore.Bank.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\IntegrationEvents\IntegrationEvents.csproj" />
+    <ProjectReference Include="..\..\Lib\Repositories.Abstractions\Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\Bank.Core\Bank.Core.csproj" />
+  </ItemGroup>
+
+</Project>

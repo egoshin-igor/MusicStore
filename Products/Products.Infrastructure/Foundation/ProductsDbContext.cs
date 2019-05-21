@@ -13,6 +13,7 @@ namespace MusicStore.Products.Infrastructure.Foundation
         protected override void OnModelCreating( ModelBuilder builder )
         {
             builder.ApplyConfiguration( new ProductConfiguration() );
+            builder.ApplyConfiguration( new ProductHistoryConfiguration() );
         }
     }
 }

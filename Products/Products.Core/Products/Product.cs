@@ -26,6 +26,14 @@ namespace MusicStore.Products.Core.Products
             Quantity += count;
         }
 
+        public void Buy( int quantity )
+        {
+            if ( Quantity >= quantity )
+            {
+                Quantity -= quantity;
+            }
+        }
+
         public void Update( ProductInfo productInfo )
         {
             if ( productInfo.Title != null )

@@ -10,6 +10,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190516134335_ChangeProductPriceType.cs" />
     <Compile Remove="Migrations\20190516134335_ChangeProductPriceType.Designer.cs" />
+    <Compile Remove="Migrations\20190520155839_AddProductHistory.cs" />
+    <Compile Remove="Migrations\20190520155839_AddProductHistory.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

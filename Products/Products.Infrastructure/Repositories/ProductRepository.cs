@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MusicStore.Lib.Repositories;
 using MusicStore.Products.Application.Repositories;
@@ -16,6 +18,11 @@ namespace MusicStore.Products.Infrastructure.Repositories
         public async Task<Product> GetByIdAsync( int id )
         {
             return await Entities.FirstOrDefaultAsync( e => e.Id == id );
+        }
+
+        public async Task<List<Product>> GetByIdsAsync( List<int> ids )
+        {
+            return await Entities.Where( e => ids.Contains( e.Id ) ).ToListAsync();
         }
     }
 }

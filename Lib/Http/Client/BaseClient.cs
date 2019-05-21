@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MusicStore.Lib.Http.Client
 {
-    public class BaseClient
+    public class BaseClient : IClient
     {
         const int InternalServerError = 500;
         private readonly HttpClient _client;
